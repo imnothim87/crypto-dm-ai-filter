@@ -44,7 +44,7 @@ Managing Twitter DMs in the crypto space can be overwhelming, with valuable oppo
   - OpenAI (GPT-4): [Get API Key](https://platform.openai.com/api-keys)
 
 ## 🔒 Privacy & Security
-Your privacy is our top priority:
+Your privacy is top priority:
 - All data stays on your machine
 - Your API keys are stored locally
 - No external data collection or storage
@@ -79,7 +79,7 @@ Help improve the project:
 - 📣 Share with others who might benefit
 
 ## 🎯 Beta Testing
-We're actively seeking testers to help refine the tool. If you:
+Actively seeking testers to help refine the tool. If you:
 - Manage a busy Twitter DM inbox
 - Are involved in the crypto/web3 space
 - Want to help shape the future of DM organization
