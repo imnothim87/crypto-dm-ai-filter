@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DM Filter Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>DM Filter Settings</h2>
+            <div class="toggle-container">
+                <span class="status-text">Extension Status</span>
+                <label class="toggle">
+                    <input type="checkbox" id="extensionToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>API Configuration</h3>
+            <div class="api-config">
+                <select id="apiProvider">
+                    <option value="anthropic">Anthropic (Claude)</option>
+                    <option value="openai">OpenAI (GPT)</option>
+                </select>
+                <input type="password" id="apiKey" placeholder="Enter API Key">
+            </div>
+            <div class="api-links">
+                <a href="https://console.anthropic.com/" target="_blank" class="anthropic-link">Get Anthropic Key</a>
+                <a href="https://platform.openai.com/api-keys" target="_blank" class="openai-link">Get OpenAI Key</a>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h3>Category Management</h3>
+            <button id="manageCategoriesBtn" class="manage-btn">Manage Categories</button>
+            <button id="reconfigureBtn" class="config-btn">Run Setup Again</button>
+        </div>
+
+        <div class="footer">
+            <button id="save" class="save-btn">Save Settings</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

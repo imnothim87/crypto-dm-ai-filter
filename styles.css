@@ -1,0 +1,158 @@
+/* DM Filter Container */
+.dm-filter-container {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-color);
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    gap: 8px;
+}
+
+/* Filter Buttons */
+.dm-filter-button {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    min-width: fit-content;
+}
+
+.dm-filter-button:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.dm-filter-button.active {
+    background: rgb(29, 155, 240);
+    color: white;
+    border-color: transparent;
+}
+
+/* Category Indicator */
+.category-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+.category-indicator:hover {
+    transform: scale(1.2);
+}
+
+/* Theme Variables */
+:root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --border-color: #2f3336;
+}
+
+/* Scrollbar Styling */
+.dm-filter-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.dm-filter-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dm-filter-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.dm-filter-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Message Styling */
+[data-dm-category] {
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+[data-dm-category]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--category-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+[data-dm-category]:hover::before {
+    opacity: 1;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .dm-filter-container {
+        padding: 8px;
+    }
+    
+    .dm-filter-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .category-indicator {
+        width: 6px;
+        height: 6px;
+        margin-right: 6px;
+    }
+}
+
+/* Dark Mode Detection */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #000000;
+        --text-color: #ffffff;
+        --border-color: #2f3336;
+    }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #ffffff;
+        --text-color: #0f1419;
+        --border-color: #eff3f4;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dm-filter-container {
+    animation: fadeIn 0.3s ease;
+}
+
+.category-indicator {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Hide buttons on loading or error states */
+.dm-filter-container.loading,
+.dm-filter-container.error {
+    opacity: 0.5;
+    pointer-events: none;
+}

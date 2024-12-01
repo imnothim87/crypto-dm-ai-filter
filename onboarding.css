@@ -1,0 +1,606 @@
+/* Base styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f7f9f9;
+    color: #0f1419;
+    min-width: 800px;
+}
+
+.onboarding-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 90vh; /* Set fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step Indicator */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #cfd9de;
+    z-index: 1;
+}
+
+.step {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #cfd9de;
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+}
+
+.step.active {
+    border-color: #1d9bf0;
+    color: #1d9bf0;
+}
+
+.step.completed {
+    background: #1d9bf0;
+    color: white;
+    border-color: #1d9bf0;
+}
+
+/* Content Sections */
+.step-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    padding-bottom: 80px; /* Add padding to prevent content from being hidden behind buttons */
+}
+
+/* Add smooth shadow to indicate scrollable content */
+.step-content::after {
+    content: '';
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(transparent, var(--bg-secondary));
+    pointer-events: none;
+}
+
+.step-content.hidden {
+    display: none;
+}
+
+h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+
+/* API Setup Section */
+.api-selector {
+    margin-bottom: 32px;
+}
+
+.api-option {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 2px solid #cfd9de;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.api-option:hover {
+    border-color: #1d9bf0;
+}
+
+.api-option input[type="radio"] {
+    margin-right: 12px;
+}
+
+.api-key-section {
+    margin-bottom: 32px;
+}
+
+.api-key-section input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cfd9de;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 8px;
+    box-sizing: border-box;
+}
+
+.api-links {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.api-links a {
+    color: #1d9bf0;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+/* Categories Section */
+.categories-list {
+    margin-bottom: 24px;
+    overflow-y: visible;
+    padding-right: 16px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 2px solid #cfd9de;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.category-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.category-info {
+    flex-grow: 1;
+}
+
+.category-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+.category-info p {
+    margin: 0;
+    color: #536471;
+    font-size: 14px;
+}
+
+.category-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.category-actions button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background: #f7f9f9;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-actions button:hover {
+    background: #e8e8e8;
+}
+
+.default-badge {
+    padding: 4px 8px;
+    background: #f7f9f9;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #536471;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cfd9de;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.form-group input[type="color"] {
+    width: 100px;
+    height: 40px;
+    padding: 2px;
+    border: 2px solid #cfd9de;
+    border-radius: 8px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.next-btn, .finish-btn {
+    background: #1d9bf0;
+    color: white;
+    border: none;
+}
+
+.next-btn:hover, .finish-btn:hover {
+    background: #1a8cd8;
+}
+
+.back-btn {
+    background: none;
+    border: 2px solid #cfd9de;
+    margin-right: 16px;
+}
+
+.back-btn:hover {
+    background: #f7f9f9;
+}
+
+.add-category-btn {
+    background: none;
+    border: 2px solid #1d9bf0;
+    color: #1d9bf0;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.add-category-btn:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.step-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    z-index: 10;
+    border-radius: 0 0 16px 16px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.save-btn {
+    background: #1d9bf0;
+    color: white;
+    border: none;
+    min-width: 100px;
+}
+
+.save-btn:hover {
+    background: #1a8cd8;
+}
+
+.cancel-btn {
+    background: none;
+    border: 2px solid #cfd9de;
+    min-width: 100px;
+}
+
+.cancel-btn:hover {
+    background: #f7f9f9;
+}
+
+/* Transitions */
+.modal {
+    transition: opacity 0.2s ease;
+}
+
+/* Final Instructions */
+.final-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 32px 0;
+}
+
+.instruction {
+    padding: 16px;
+    background: #f7f9f9;
+    border-radius: 12px;
+}
+
+.instruction h3 {
+    margin: 0 0 8px 0;
+    color: #1d9bf0;
+}
+
+.instruction p {
+    margin: 0;
+    color: #536471;
+}
+
+/* Dark theme variables */
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #16181c;
+    --bg-elevated: #202327;
+    --text-primary: #e7e9ea;
+    --text-secondary: #71767b;
+    --border-color: #2f3336;
+    --accent-blue: #1d9bf0;
+    --accent-blue-hover: #1a8cd8;
+    --danger-red: #f4212e;
+    --success-green: #00ba7c;
+}
+
+/* Base styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-width: 800px;
+}
+
+.onboarding-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 90vh; /* Set fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step Indicator */
+.step-indicator::before {
+    background: var(--border-color);
+}
+
+.step {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.step.active {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.step.completed {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+    border-color: var(--accent-blue);
+}
+
+/* API Setup Section */
+.api-option {
+    border: 2px solid var(--border-color);
+    background: var(--bg-elevated);
+}
+
+.api-option:hover {
+    border-color: var(--accent-blue);
+}
+
+.api-key-section input {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.api-key-section input:focus {
+    border-color: var(--accent-blue);
+}
+
+.api-links a {
+    color: var(--accent-blue);
+}
+
+/* Categories Section */
+.category-item {
+    border: 2px solid var(--border-color);
+    background: var(--bg-elevated);
+}
+
+.category-info p {
+    color: var(--text-secondary);
+}
+
+.category-actions button {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.category-actions button:hover {
+    background: var(--bg-elevated);
+}
+
+.default-badge {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+}
+
+/* Modal */
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-blue);
+}
+
+.form-group input[type="color"] {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+}
+
+/* Buttons */
+.next-btn, .finish-btn {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+}
+
+.next-btn:hover, .finish-btn:hover {
+    background: var(--accent-blue-hover);
+}
+
+.back-btn {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.back-btn:hover {
+    background: var(--bg-elevated);
+}
+
+.add-category-btn {
+    background: transparent;
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.add-category-btn:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.save-btn {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+}
+
+.save-btn:hover {
+    background: var(--accent-blue-hover);
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+    background: var(--bg-elevated);
+}
+
+/* Final Instructions */
+.instruction {
+    background: var(--bg-elevated);
+}
+
+.instruction h3 {
+    color: var(--accent-blue);
+}
+
+.instruction p {
+    color: var(--text-secondary);
+}
+
+/* Form elements */
+input[type="radio"] {
+    accent-color: var(--accent-blue);
+}
+
+/* Placeholder text */
+::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+}

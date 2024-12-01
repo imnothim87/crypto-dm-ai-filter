@@ -1,0 +1,185 @@
+body {
+    width: 350px;
+    padding: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: #0f1419;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-text {
+    font-size: 14px;
+    color: #536471;
+}
+
+/* Toggle Switch */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cfd9de;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #1d9bf0;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Settings Sections */
+.settings-section, .category-section {
+    background: #f7f9f9;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.api-config {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+select, input[type="password"] {
+    padding: 8px 12px;
+    border: 2px solid #cfd9de;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select:focus, input:focus {
+    border-color: #1d9bf0;
+    outline: none;
+}
+
+.api-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.api-links a {
+    color: #1d9bf0;
+    text-decoration: none;
+}
+
+.api-links a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.manage-btn, .config-btn {
+    width: 100%;
+    margin-bottom: 8px;
+    background: none;
+    border: 2px solid #1d9bf0;
+    color: #1d9bf0;
+}
+
+.manage-btn:hover, .config-btn:hover {
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.save-btn {
+    width: 100%;
+    background: #1d9bf0;
+    color: white;
+    border: none;
+}
+
+.save-btn:hover {
+    background: #1a8cd8;
+}
+
+.footer {
+    margin-top: 8px;
+}
+
+/* Error/Success Messages */
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.error {
+    background: #fee;
+    color: #e0245e;
+}
+
+.success {
+    background: #e8f5fd;
+    color: #1d9bf0;
+}

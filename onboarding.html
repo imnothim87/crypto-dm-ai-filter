@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+    <title>DM Filter Setup</title>
+    <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Step indicator -->
+        <div class="step-indicator">
+            <div class="step active" data-step="1">1. API Setup</div>
+            <div class="step" data-step="2">2. Categories</div>
+            <div class="step" data-step="3">3. Finish</div>
+        </div>
+
+        <!-- Step 1: API Setup -->
+        <div class="step-content" id="step1">
+            <h2>Welcome to DM Filter!</h2>
+            <p>First, let's set up your AI provider. Choose your preferred service and enter your API key.</p>
+            
+            <div class="api-selector">
+                <div class="api-option">
+                    <input type="radio" id="anthropic" name="apiProvider" value="anthropic" checked>
+                    <label for="anthropic">
+                        <h3>Anthropic (Claude)</h3>
+                        <p>Recommended for better understanding of context and nuanced filtering</p>
+                    </label>
+                </div>
+                
+                <div class="api-option">
+                    <input type="radio" id="openai" name="apiProvider" value="openai">
+                    <label for="openai">
+                        <h3>OpenAI (GPT)</h3>
+                        <p>Alternative option with good performance</p>
+                    </label>
+                </div>
+            </div>
+
+            <div class="api-key-section">
+                <label for="apiKey">API Key</label>
+                <input type="password" id="apiKey" placeholder="Enter your API key">
+                <div class="api-links">
+                    Get your key from: 
+                    <a href="https://console.anthropic.com/" target="_blank" class="anthropic-link">Anthropic Console</a>
+                    <a href="https://platform.openai.com/api-keys" target="_blank" class="openai-link">OpenAI Dashboard</a>
+                </div>
+            </div>
+
+            <button class="next-btn" id="step1Next">Next</button>
+        </div>
+
+        <!-- Step 2: Categories Setup -->
+        <div class="step-content hidden" id="step2">
+            <h2>Customize Your Categories</h2>
+            <p>Review the default categories and customize them to your needs. You can also add new ones.</p>
+
+            <div class="categories-list" id="categoriesList">
+                <!-- Categories will be inserted here by JavaScript -->
+            </div>
+
+            <button class="add-category-btn" id="addCategoryBtn">+ Add New Category</button>
+
+            <div class="step-buttons">
+                <button class="back-btn" id="step2Back">Back</button>
+                <button class="next-btn" id="step2Next">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Finish -->
+        <div class="step-content hidden" id="step3">
+            <h2>You're All Set!</h2>
+            <p>Your DM Filter is now configured and ready to use.</p>
+
+            <div class="final-instructions">
+                <div class="instruction">
+                    <h3>1. Go to Twitter</h3>
+                    <p>Open Twitter and navigate to your DMs</p>
+                </div>
+                
+                <div class="instruction">
+                    <h3>2. See Your Filters</h3>
+                    <p>You'll see your category filters at the top of your DM list</p>
+                </div>
+                
+                <div class="instruction">
+                    <h3>3. Manage Categories</h3>
+                    <p>Click the ⚙️ icon anytime to manage your categories</p>
+                </div>
+            </div>
+
+            <div class="step-buttons">
+                <button class="back-btn" id="step3Back">Back</button>
+                <button class="finish-btn" id="finishSetup">Finish Setup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal template will be created by JavaScript -->
+    <script src="onboarding.js"></script>
+</body>
+</html>

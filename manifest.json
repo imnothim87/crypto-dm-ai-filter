@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Crypto DM Filter",
+  "version": "1.0",
+  "description": "AI-powered Twitter DM organizer with custom categories",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.twitter.com/*",
+    "https://*.x.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.twitter.com/*", 
+        "https://*.x.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "onboarding.html",
+        "onboarding.css",
+        "onboarding.js"
+      ],
+      "matches": [
+        "https://*.twitter.com/*",
+        "https://*.x.com/*",
+        "https://*.anthropic.com/*",
+        "https://*.openai.com/*"
+      ]
+    }
+  ]
+}
