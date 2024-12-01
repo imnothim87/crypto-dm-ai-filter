@@ -1,5 +1,6 @@
 Twitter DM Filter - AI-Powered Message Organization
-Why This Tool?
+Why This Tool?<br>
+
 Managing Twitter DMs in the crypto space can be overwhelming, with valuable opportunities potentially slipping through the cracks. This Chrome extension was built by a developer who understands these challenges, aiming to enhance the DM experience using AI technology.
 🌟 Key Highlights
 
